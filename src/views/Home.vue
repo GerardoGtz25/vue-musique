@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>{{ msg }}</h1>
   </div>
 </template>
 
@@ -14,5 +14,10 @@ export default {
   components: {
     HelloWorld,
   },
+  data () {
+    return {
+      msg: 'je vais faire tout cet application en francais !'
+    }
+  }
 };
 </script>
