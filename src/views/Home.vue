@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+  <div>
     <h1>{{ msg }}</h1>
+    <p v-show="showValue">{{ value }}</p>
   </div>
 </template>
 
@@ -16,7 +16,9 @@ export default {
   },
   data () {
     return {
-      msg: 'je vais faire tout cet application en francais !'
+      msg: 'je vais faire tout cet application en francais !',
+      showValue: true,
+      value: 'Algo',
     }
   }
 };
