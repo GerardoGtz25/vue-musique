@@ -1,5 +1,6 @@
 <template>
   <div>
+    <vm-header></vm-header>
     <section class="section">
       <nav class="nav has-shadow">
         <div class="container">
@@ -22,14 +23,19 @@
         </div>
       </div>
     </section>
+    <vm-footer></vm-footer>
   </div>
 </template>
 
 <script>
 import trackService from './../service/track'
+import VmFooter from '../components/layouts/Footer'
+import VmHeader from '../components/layouts/Header'
 
 export default {
   name: 'home',
+
+  components: { VmFooter, VmHeader },
 
   data () {
     return {
