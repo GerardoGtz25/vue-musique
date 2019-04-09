@@ -5,11 +5,11 @@ const trackService = {}
 trackService.search = (q) => {
   const type = 'track'
 
-  vueMusiqueService.get('/search', {
+  return vueMusiqueService.get('/search', {
     params: { q, type }
-  }).then(res => {
+  }).then( res => {
     return res.data;
   })
 }
 
-export default trackService
+export default trackService;
