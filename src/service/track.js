@@ -4,7 +4,6 @@ const trackService = {}
 
 trackService.search = (q) => {
   const type = 'track'
-
   return vueMusiqueService.get('/search', {
     params: { q, type }
   }).then( res => {
