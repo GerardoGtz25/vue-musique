@@ -1,6 +1,5 @@
 <template>
   <div>
-    <vm-header/>
     <vm-notification v-show="showNotification">
       <p>Nous n'avons pas trouver aucun resultat</p>
     </vm-notification>
@@ -29,15 +28,11 @@
         </div>
       </div>
     </section>
-    <vm-footer/>
   </div>
 </template>
 
 <script>
 import trackService from '../service/track'
-
-import VmFooter from '../components/layouts/Footer'
-import VmHeader from '../components/layouts/Header'
 
 import VmTrack from '../components/Track'
 
@@ -48,7 +43,7 @@ import { setTimeout } from 'timers';
 export default {
   name: 'home',
 
-  components: { VmFooter, VmHeader, VmTrack, VmLoader, VmNotification },
+  components: { VmTrack, VmLoader, VmNotification },
 
   data () {
     return {
@@ -93,6 +88,7 @@ export default {
 
     clean() {
       this.tracks = []
+      this.searchQuery = ''
     },
 
     setSelectedTrack(id) {

@@ -1,14 +1,14 @@
 <template>
-  <div class="content">
-    <p class="is-128x128">
-      <img src="" alt="">
+  <div class="content" v-if="track && track.album">
+    <p>
+      <img :src="track.album.images[0].url">
     </p>
     <p>
-      <strong></strong>
-      <small></small>
+      <strong>{{ track.name }} </strong>
+      <small> [{{ track.duration_ms }}]</small>
     </p>
     <p>
-      <audio src="" controls></audio>
+      <audio :src="track.preview_url" controls></audio>
     </p>
   </div>
 </template>
@@ -22,7 +22,20 @@ export default {
     }
   },
 
-  created() {}
+  created() {
+    this.$bus.$on('set-track', (track) => {
+      console.log(track)
+      this.track = track
+    })
+  }
 }
 </script>
+
+<style scoped>
+  img {
+    width: 124px;
+    border-radius: 50%;
+  }
+</style>
+
 
