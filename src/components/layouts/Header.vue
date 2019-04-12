@@ -1,26 +1,27 @@
 <template>
   <section class="hero is-success">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <div class="hero-head">
       <header class="nav">
         <div class="container">
-          <div class="nav-left">
+
+          <div class="navbar-start">
             <div class="nav-item">
               <strong>Vue Musique</strong>
+              
             </div>
           </div>
-          <div class="nav-rigth nav-menu">
 
+          <div class="navbar-end">
+            <router-link to="/" class="nav-item">Chercher | </router-link>
+            <router-link to="/about" class="nav-item"> Nous</router-link>
           </div>
+
         </div>
       </header>
     </div>
     <div class="hero-body">
       <div class="container has-text-centered">
-        <h1 class="title">Vue Musique</h1>
+        <h1 class="title"></h1>
         <h2 class="subtitle">les meilleures chansons du moment!</h2>
         <vm-player/>
       </div>
