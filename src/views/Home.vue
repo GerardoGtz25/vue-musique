@@ -2,24 +2,26 @@
   <div>
     <vm-header/>
     <vm-notification v-show="showNotification">
-      <p>No se encontraron resultados</p>
+      <p>Nous n'avons pas trouver aucun resultat</p>
     </vm-notification>
     <section class="section">
       <nav class="nav has-shadow">
-        <div class="container">
-          <input type="text" class="input is-large" placeholder="Buscar canciones" v-model="searchQuery">
-          <a class="button is-info is-large" @click="search">Buscar</a>
-          <a class="button is-danger is-large" @click="clean">&times;</a>
-          
+        <div class="container space-btw">
+          <input type="text" class="input is-large is-rounded input-size" placeholder="Chercher des chansons" v-model="searchQuery">
+          <div>
+            <a class="button is-info is-large marginRL" @click="search">Chercher</a>
+            <a class="button is-danger is-large marginRL" @click="clean">&times;</a>
+          </div>
         </div>
       </nav>
       <div class="container">
         <vm-loader v-show="isLoading"/>
-        <p>
+        <p style="margin: 10px;">
           <small>{{ searchMessage }}</small>
         </p>
       </div>
       <div class="container results">
+        
         <div class="columns is-multiline" v-show="!isLoading">
           <div class="column is-one-quarter" v-for="t in tracks" :key="t.id">
             <vm-track :track="t" @select="setSelectedTrack" :class="{'is-active': t.id === selectedTrack}"/>
@@ -61,7 +63,7 @@ export default {
 
   computed: {
     searchMessage() {
-      return `Encontrados: ${this.tracks.length}`
+      return `Trouvés: ${this.tracks.length}`
     },
   },
 
@@ -76,7 +78,6 @@ export default {
   },
 
   methods: {
-
     search() { 
       if (!this.searchQuery) { return }
 
@@ -104,6 +105,17 @@ export default {
 <style>
   .is-active {
     border: 3px #23d160 solid;
+  }
+  .input-size {
+    width: 70%;
+  }
+  .marginRL{
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .space-btw{
+    display: flex;
+    justify-content: space-between;
   }
 </style>
 

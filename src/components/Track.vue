@@ -8,7 +8,7 @@
     <div class="card-content">
       <div class="media">
         <div class="media-left">
-          <figure class="image is-48x48">
+          <figure class="image is-48x48"> 
             <img :src="track.album.images[0].url" alt="Placeholder image">
           </figure>
         </div>
@@ -39,7 +39,8 @@ export default {
 
   methods: {
     selectTrack() {
-      this.$emit('select', this.track.id);
+      this.$emit('select', this.track.id)
+      this.$bus.$emit('set-track', this.track)
     }
   }
 }

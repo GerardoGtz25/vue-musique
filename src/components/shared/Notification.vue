@@ -3,7 +3,7 @@
     <div class="columns">
       <div class="column is-5 is-offset-4">
         <div class="notification is-danger">
-          <slot>Algo salio mal</slot>
+          <slot>Quelque chose a mal tourné</slot>
         </div>
       </div>
     </div>
