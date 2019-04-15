@@ -11,4 +11,8 @@ trackService.search = (q) => {
   })
 }
 
+trackService.getById = (id) => {
+  return vueMusiqueService.get(`/tracks/${id}`).then(res => res.data)
+} 
+
 export default trackService;

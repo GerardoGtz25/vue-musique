@@ -6,7 +6,12 @@
     <section class="section">
       <nav class="nav has-shadow">
         <div class="container space-btw">
-          <input type="text" class="input is-large is-rounded input-size" placeholder="Chercher des chansons" v-model="searchQuery">
+          <input 
+            type="text" 
+            class="input is-large is-rounded input-size" 
+            placeholder="Chercher des chansons" 
+            v-model="searchQuery" 
+            @keyup.enter="search">
           <div>
             <a class="button is-info is-large marginRL" @click="search">Chercher</a>
             <a class="button is-danger is-large marginRL" @click="clean">&times;</a>
