@@ -28,7 +28,7 @@
         
         <div class="columns is-multiline" v-show="!isLoading">
           <div class="column is-one-quarter" v-for="t in tracks" :key="t.id">
-            <vm-track :track="t" @select="setSelectedTrack" :class="{'is-active': t.id === selectedTrack}"/>
+            <vm-track :track="t" @select="setSelectedTrack" :class="{'is-active': t.id === selectedTrack}" v-blur="t.preview_url"/>
           </div>
         </div>
       </div>

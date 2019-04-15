@@ -19,15 +19,15 @@
         </div>
       </div>
       <div class="content space" >
-        <a class="button is-primary" @click="selectTrack">
+        <button class="button is-primary" @click="selectTrack">
           <span class="icon is-small">
             <i class="fas fa-play"></i>
           </span>
           <p>Reproducir</p>
-        </a>
-        <a class="button is-primary" @click="goToTrack(track.id)">
+        </button>
+        <button class="button is-warning" @click="goToTrack(track.id)">
           <i class="fas fa-info-circle"></i>
-        </a>
+        </button>
       </div>
     </div>
   </div>
@@ -41,11 +41,13 @@ export default {
 
   methods: {
     selectTrack() {
+      if (!this.track.preview_url) { return }
       this.$emit('select', this.track.id)
       this.$bus.$emit('set-track', this.track)
     },
 
     goToTrack(id) {
+      if (!this.track.preview_url) { return }
       this.$router.push({ name: 'track', params: { id }})
     }
   }
