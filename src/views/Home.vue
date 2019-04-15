@@ -1,8 +1,10 @@
 <template>
   <div>
-    <vm-notification v-show="showNotification">
-      <p>Nous n'avons pas trouver aucun resultat</p>
-    </vm-notification>
+    <transition name="move">
+      <vm-notification v-show="showNotification">
+        <p>Nous n'avons pas trouver aucun resultat</p>
+      </vm-notification>
+    </transition>
     <section class="section">
       <nav class="nav has-shadow">
         <div class="container space-btw">
@@ -19,13 +21,14 @@
         </div>
       </nav>
       <div class="container">
-        <vm-loader v-show="isLoading"/>
+        <transition name="move">
+          <vm-loader v-show="isLoading"/>
+        </transition>
         <p style="margin: 10px;">
           <small>{{ searchMessage }}</small>
         </p>
       </div>
       <div class="container results">
-        
         <div class="columns is-multiline" v-show="!isLoading">
           <div class="column is-one-quarter" v-for="t in tracks" :key="t.id">
             <vm-track :track="t" @select="setSelectedTrack" :class="{'is-active': t.id === selectedTrack}" v-blur="t.preview_url"/>
