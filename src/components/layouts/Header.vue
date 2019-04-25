@@ -12,8 +12,10 @@
           </div>
 
           <div class="navbar-end">
-            <router-link to="/" class="nav-item">Chercher | </router-link>
-            <router-link to="/about" class="nav-item"> Nous</router-link>
+            <a class="nav-item" @click="selectLang('en')">En</a>
+            <a class="nav-item" @click="selectLang('es')">Es</a>
+            <router-link to="/" class="nav-item">{{ $t('search') }}</router-link>
+            <router-link to="/about" class="nav-item"> {{ $t('about') }}</router-link>
           </div>
 
         </div>
@@ -33,7 +35,13 @@
 import VmPlayer from '@/components/Player.vue'
 
 export default {
-  components: { VmPlayer }
+  components: { VmPlayer },
+
+  methods: {
+    selectLang(lang) {
+      this.$i18n.locale = lang
+    }
+  }
 }
 </script>
 
